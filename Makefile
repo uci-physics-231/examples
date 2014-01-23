@@ -16,3 +16,7 @@ default : $(EXAMPLES:%=%.textile)
 # Updates our wiki on github
 update :
 	cd $(WIKI_REPO) && git commit -m 'Makefile automatic update' && git push
+
+# Cleans up any .textile files
+clean :
+	rm *.textile

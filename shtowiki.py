@@ -55,7 +55,7 @@ def main():
 						print >>output, args.prompt + cmd
 						# Try running the command.
 						try:
-							result = subprocess.check_output(cmd,shell=True)
+							result = subprocess.check_output(cmd,shell=True,stderr=subprocess.STDOUT)
 							if result:
 								# Display the output in a separate code block,
 								# possibly including blank lines.
