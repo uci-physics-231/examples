@@ -1,6 +1,7 @@
 # Git is a low-level tool for managing version content. A git "workflow" is a set of guidelines
-# for effectively using Git on a project. There are many possible workflows and the right one
-# for a given project depends on the number of developers and the complexity of the project.
+# for effectively using Git on a project. There are "many possible workflows":https://www.atlassian.com/git/workflows
+# and the right one for a given project depends on the number of developers and the complexity
+# of the project.
 
 # Every git commit object has zero, one, or more parent commits. The initial commit has no parent
 # and most commits just have a single parent. When two commits share the same parent, we call
