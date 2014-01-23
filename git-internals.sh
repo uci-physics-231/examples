@@ -65,3 +65,43 @@ find .git/objects -type f
 # that you provide some descriptive text, that becomes an important (and permanent)
 # part of your project's documentation.
 git commit -m "My first commmit"
+
+# You now have 2 "blob" objects, 2 "tree" objects, and 1 "commit" object in your db.
+find .git/objects -type f
+
+# A "tree" object represents one node in a directory tree, and includes file names
+# and (simplified) file permissions, e.g.
+git cat-file -p f4a3
+
+# The "commit" object saves the top-level "tree" node and who/why/when metadata.
+# Since the commit's contents includes this metadata, its hash value does also and
+# will be different when you run this command (unlike the blob and tree hash values).
+# You can inspect your most recent commit object using
+git log -1
+
+# For your second commit, lets change one of the files.
+echo "Welcome" >> hello.txt
+git status
+
+# Although this file is already tracked, we still need to "add" changes to save
+# a new snapshot. This creates a new "blob" object for an old file, because
+# its contents has changed.
+git add hello.txt
+find .git/objects -type f
+
+# Commit the change to record a new snapshot of @hello.txt@ (along with the old snapshots
+# of the other files we are tracking). Note that a commit already records what changed, so
+# your message should focus on why it changed.
+git commit -m "Expand upon the English version"
+
+# In addition to creating or changing content ("add"), you can also remove content
+# (see @man git-rm@), in which case old snapshots are still retained, or move contents
+# to another directory or filename (see @man git-mv@). In both of these cases, only
+# "tree" objects are changed.
+
+# Its fine to leave some changes unstaged when you commit, but if you have files that
+# you never intend to commit you should ignore them properly (see @man gitignore@).
+
+# Now that you have seen the insides of git, you will normally just use the @git add@ command
+# to move changes into the index (remember that edits are also called 'adds'), followed by
+# a @git commit@.
