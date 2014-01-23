@@ -9,14 +9,19 @@
 git init
 touch a
 git add a
-git commit -m 'a'
+git commit --quiet -m 'a'
 touch b
 git add b
-git commit -m 'b'
+git commit --quiet -m 'b'
 touch c
 git add c
-git commit -m 'c'
+git commit --quiet -m 'c'
 
 # The commit history forms a directed acyclic graph (DAG) that can get quite complex. The following
 # command displays the DAG nicely:
-git log --graph --pretty=format:'%C(blue)%h%Creset%C(red bold)%d%Creset %C(black)%s%Creset %C(green)(by %an %ar)%Creset' --all
+git log --graph --pretty=format:'%h%d %s (by %an %ar)' --all
+
+# You can save an alias for this using (add the @--global@ option to use the alias on all your local repos)
+git config alias.dag "log --graph --pretty=format:'%h%d %s (by %an %ar)' --all"
+git dag
+
