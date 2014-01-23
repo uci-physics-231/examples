@@ -66,6 +66,16 @@ ls -F
 git checkout master
 ls -F
 
+# To see all your active branches, use (the current branch is marked with an asterisk)
+git branch -v
+
+# The @git diff@ command lets you compare any two commits (leave off the @--stat@ option
+# for more details). You can refer to leaf-node commits using their branch names.
+git diff --stat feature-1 feature-2
+
+# You can also refer to any commit using its (abbreviated) hash or using "tree-ish" aliases, e.g.
+git diff --stat HEAD HEAD^
+
 # A good workflow practice is to think of your @master@ branch as the public face of
 # your project, so you can work freely on topic branches and then merge completed
 # new features back to the @master@ branch when you are ready. To merge @feature-1@:
