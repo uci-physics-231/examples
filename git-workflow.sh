@@ -62,9 +62,9 @@ git dag
 
 # Note that switching between branches will generally change files in your working
 # tree if they are being tracked in the repo, but this is safe because they are tracked!
-ls -F
+ls -CF
 git checkout master
-ls -F
+ls -CF
 
 # To see all your active branches, use (the current branch is marked with an asterisk)
 git branch -v

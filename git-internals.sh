@@ -1,6 +1,6 @@
 # A "git repo" is just a directory tree containing a @.git/@ folder at the top level.
 git init
-ls -F .git
+ls -CF .git
 
 # File contents (but not names or other metadata) is stored in a "blob".
 # Every blob is identified by a ~unique SHA-1 hash. The same contents always has the
