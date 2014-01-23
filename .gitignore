@@ -1,3 +1,5 @@
+*.textile
+
 *.py[cod]
 
 # C extensions
