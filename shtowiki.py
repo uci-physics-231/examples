@@ -49,13 +49,17 @@ def main():
 						print >>output, '\npre.',
 					print >>output, args.prompt + cmd
 					# Try running the command.
-					result = subprocess.check_output(cmd,shell=True)
-					if result:
-						# Display the output in a separate code block, possibly including blank lines.
-						print >>output, '\nbc.. ' + result
-						last = 'result'
-					else:
-						last = 'cmd'
+					try:
+						result = subprocess.check_output(cmd,shell=True)
+						if result:
+							# Display the output in a separate code block, possibly including blank lines.
+							print >>output, '\nbc.. ' + result
+							last = 'result'
+						else:
+							last = 'cmd'
+					except subprocess.CalledProcessError,e:
+						print 'Command failed: %r' % cmd
+						sys.exit(-3)
 
 if __name__ == '__main__':
 	main()
