@@ -7,10 +7,10 @@ WIKI_REPO = ../examples.wiki
 # We build the corresponding list of .textile files by default
 default : $(EXAMPLES:%=%.textile)
 
-# How to build *.textile from *.sh (or if the Makefile is changed)
-%.textile : %.sh Makefile
+# How to build *.textile from *.sh
+%.textile : %.sh
 	./shtowiki.py -i $<
-	mv $@ $(WIKI_REPO)
+	cp $@ $(WIKI_REPO)
 	cd $(WIKI_REPO) && git add $@
 
 # Updates our wiki on github
