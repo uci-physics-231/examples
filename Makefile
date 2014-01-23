@@ -1,5 +1,5 @@
 # List the examples we build
-EXAMPLES = git-internals
+EXAMPLES = git-internals git-workflow
 
 # Specify the path of our wiki repo
 WIKI_REPO = ../examples.wiki
