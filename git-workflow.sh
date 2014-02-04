@@ -7,7 +7,7 @@
 # and most commits just have a single parent. When two commits share the same parent, we call
 # this a "branch". When one commit has multiple parents, we call this a "merge". Lets create
 # some commits to get started.
-git init
+(git init)
 echo "a" > a
 git add a
 git commit --quiet -m 'a'
@@ -35,7 +35,7 @@ git branch feature-1 master
 git status
 
 # To switch between branches, use @git checkout@.
-git checkout feature-1
+(git checkout feature-1)
 git status
 
 # Now let's add some content on this new branch
@@ -49,7 +49,7 @@ git dag
 
 # Suppose someone else (or perhaps you) is working on a different feature in a separate branch.
 # Note how we combine the @branch@ and @checkout@ commands into a single @checkout@ command.
-git checkout -b feature-2 master
+(git checkout -b feature-2 master)
 echo "f" > f
 git add f
 git commit --quiet -m 'f'
@@ -64,7 +64,7 @@ git dag
 # Note that switching between branches will generally change files in your working
 # tree if they are being tracked in the repo, but this is safe because they are tracked!
 ls -CF
-git checkout master
+(git checkout master)
 ls -CF
 
 # To see all your active branches, use (the current branch is marked with an asterisk)
@@ -80,12 +80,12 @@ git diff --stat HEAD HEAD^
 # A good workflow practice is to think of your @master@ branch as the public face of
 # your project, so you can work freely on topic branches and then merge completed
 # new features back to the @master@ branch when you are ready. To merge @feature-1@:
-git checkout master
+(git checkout master)
 git merge feature-1
 git dag
 
 # Similarly for @feature-2@
-git checkout master
+(git checkout master)
 git merge feature-2
 git dag
 
