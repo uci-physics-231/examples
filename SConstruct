@@ -4,3 +4,5 @@ env['BUILDERS']['Example'] = Builder(action = './shtowiki.py -i $SOURCE',
 
 env.Example('git-internals')
 env.Example('git-workflow')
+
+# use scons -c to cleanup
