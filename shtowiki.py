@@ -8,7 +8,26 @@ import os
 import os.path
 import sys
 
+def example():
+	"""
+	This is a function simply to demonstrate python docstrings. See
+	http://www.python.org/dev/peps/pep-0257/ for recommendations on
+	how docstrings should be formatted. Docstrings can be viewed from
+	an interactive python session using the help command, e.g.
+
+	import shtowiki
+	help(shtowiki.example)
+
+	They can also be exported into web pages using
+	the pydoc command or, better, the sphinx package.
+	"""
+	pass
+
 def main():
+	"""
+	This is the main function that does the real work of converting a bash
+	script (ending with .sh) into a markup file (ending with .textile).
+	"""
 	parser = argparse.ArgumentParser(description='Convert bash script into wiki markup')
 	parser.add_argument('-i','--input',default='',help='input script to process')
 	parser.add_argument('--prompt',default='% ',help='command prompt to display')
