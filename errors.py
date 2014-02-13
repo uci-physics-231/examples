@@ -55,3 +55,11 @@ class ValueWithError(object):
 		fmt = "%s +/- %s" % (fmt,fmt)
 		# build the result
 		return fmt % (roundedValue,roundedError)
+	def __radd__(self,other):
+		"""
+		Returns a new object that represents the added value and error of this object
+		and another object. Errors are added in quadrature.
+		"""
+		errorSumSq = self.error*self.error + other.error*other.error
+		assert errorSumSq > 0, "Sum of squared errors is not positive !?"
+		return ValueWithError(self.value + other.value,math.sqrt(errorSumSq))
