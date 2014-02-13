@@ -41,9 +41,9 @@ class ValueWithError(object):
 		# calculate our least significant digit after rounding
 		lsd = 10**(msd-nround+1)
 		# round the error
-		roundedError = math.floor(self.error/lsd)*lsd
+		roundedError = math.floor(self.error/lsd+0.5)*lsd
 		# round the value
-		roundedValue = math.floor(abs(self.value)/lsd)*lsd
+		roundedValue = math.floor(abs(self.value)/lsd+0.5)*lsd
 		if self.value < 0:
 			roundedValue = -roundedValue
 		# prepare the floating-point format string to use

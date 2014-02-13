@@ -29,6 +29,8 @@ class ValueWithErrorsTests(unittest.TestCase):
 		self.assertEqual(str(errors.ValueWithError(1,1)),"1.0 +/- 1.0")
 		self.assertEqual(str(errors.ValueWithError(1,0.1)),"1.00 +/- 0.10")
 		self.assertEqual(str(errors.ValueWithError(1,0.01)),"1.000 +/- 0.010")
+		self.assertEqual(str(errors.ValueWithError(1,2.99)),"1.0 +/- 3.0")
+		self.assertEqual(str(errors.ValueWithError(1,3.01)),"1.0 +/- 3.0")
 		self.assertEqual(str(errors.ValueWithError(1,3.54)),"1.0 +/- 3.5")
 		self.assertEqual(str(errors.ValueWithError(1,0.354)),"1.00 +/- 0.35")
 		self.assertEqual(str(errors.ValueWithError(1,0.0354)),"1.000 +/- 0.035")
