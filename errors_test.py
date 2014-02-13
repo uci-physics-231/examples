@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+"""
+Tests the ValueWithError class using the standard python unittest module.
+See http://docs.python.org/2/library/unittest.html for details.
+"""
+
 import errors
 import unittest
 
@@ -18,6 +23,21 @@ class ValueWithErrorsTests(unittest.TestCase):
 		"error value must be positive"
 		self.assertRaises(ValueError,errors.ValueWithError,1,0)
 		self.assertRaises(ValueError,errors.ValueWithError,1,-1)
+
+	def str_rounding_range1(self):
+		"rounding test cases with sig = 100 - 354"
+		self.assertEqual(str(errors.ValueWithError(1,1)),"1.00 +/- 1.00")
+		self.assertEqual(str(errors.ValueWithError(1,0.1)),"1.000 +/- 0.100")
+		self.assertEqual(str(errors.ValueWithError(1,0.01)),"1.0000 +/- 0.0100")
+		self.assertEqual(str(errors.ValueWithError(1,3.54)),"1.00 +/- 3.54")
+		self.assertEqual(str(errors.ValueWithError(1,0.354)),"1.000 +/- 0.354")
+		self.assertEqual(str(errors.ValueWithError(1,0.0354)),"1.0000 +/- 0.0354")
+		self.assertEqual(str(errors.ValueWithError(1,3.54999)),"1.00 +/- 3.54")
+		self.assertEqual(str(errors.ValueWithError(1,0.354999)),"1.000 +/- 0.354")
+		self.assertEqual(str(errors.ValueWithError(1,0.0354999)),"1.0000 +/- 0.0354")
+
+	def str_value_sign(self):
+		self.assertEqual(str(errors.ValueWithError(-1,1)),"-1.00 +/- 1.00")
 
 if __name__ == '__main__':
 	unittest.main()
