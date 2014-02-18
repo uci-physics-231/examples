@@ -40,7 +40,13 @@ class ValueWithErrorsTests(unittest.TestCase):
 
 	def test_str_rounding_range2(self):
 		"rounding test cases with sig = 355 - 949"
-		pass
+		self.assertEqual(str(errors.ValueWithError(1,4)),"1 +/- 4")
+		self.assertEqual(str(errors.ValueWithError(1,0.4)),"1.0 +/- 0.4")
+		self.assertEqual(str(errors.ValueWithError(1,0.04)),"1.00 +/- 0.04")
+
+	def test_str_rounding_range3(self):
+		"rounding test cases with sig = 950 - 999"
+		self.assertEqual(str(errors.ValueWithError(1,0.99)),"1.0 +/- 1.0")
 
 	def str_value_sign(self):
 		self.assertEqual(str(errors.ValueWithError(-1,1)),"-1.00 +/- 1.00")
