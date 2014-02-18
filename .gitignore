@@ -1,3 +1,7 @@
 *.textile
 *.pyc
 *.dblite
+
+# parser output files
+parser.out
+parsetab.py
