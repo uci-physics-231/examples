@@ -52,7 +52,6 @@ class ValueWithError(object):
 		else:
 			fmt = "%.0f"
 		fmt = "%s +/- %s" % (fmt,fmt)
-		print msd,sig,nround,lsd,roundedValue,roundedError,fmt
 		# build the result
 		return fmt % (roundedValue,roundedError)
 	def __radd__(self,other):
