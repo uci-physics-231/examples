@@ -29,7 +29,6 @@ class ValueWithError(object):
 		msd = int(math.floor(math.log10(self.error)))
 		# convert the three most significant digits of the error to an integer 100-999
 		sig = int(math.floor(self.error/10**(msd-2)))
-		print msd,sig
 		assert sig >= 100 and sig <= 999, "Range error for 3 most sig digits !?"
 		# select the number of significant digits to use for rounding
 		if sig < 355:
@@ -40,16 +39,16 @@ class ValueWithError(object):
 			nround = 2
 			msd += 1
 		# calculate our least significant digit after rounding
-		lsd = 10**(msd-nround)
+		lsd = 10**(msd-nround+1)
 		# round the error
-		roundedError = math.floor(self.error/lsd)*lsd
+		roundedError = math.floor(self.error/lsd+0.5)*lsd
 		# round the value
-		roundedValue = math.floor(abs(self.value)/lsd)*lsd
+		roundedValue = math.floor(abs(self.value)/lsd+0.5)*lsd
 		if self.value < 0:
 			roundedValue = -roundedValue
 		# prepare the floating-point format string to use
-		if msd - nround < 0:
-			fmt = "%%.%df" % (nround-msd)
+		if msd - nround + 1 < 0:
+			fmt = "%%.%df" % (nround-msd-1)
 		else:
 			fmt = "%.0f"
 		fmt = "%s +/- %s" % (fmt,fmt)
