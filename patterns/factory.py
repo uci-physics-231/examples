@@ -24,7 +24,6 @@ def create(name):
 	# create the requested class by name
 	if name == "electron":
 		return Electron()
-	elif name == "proton":
+	if name == "proton":
 		return Proton()
-	else:
-		raise RuntimeError("Unknown particle name: %s",name)
+	raise RuntimeError("Unknown particle name: %s",name)
