@@ -1,3 +1,5 @@
+# A sample implementation of the Strategy design pattern in python
+
 class AbsInterpolator(object):
 	def interpolate(x):
 		raise NotImplementedError('interpolate method has not been implemented')

@@ -1,3 +1,6 @@
+// A sample implementation of the Strategy design pattern in C++
+// Verify that it compiles using g++ -c strategy.cc
+
 #include <vector>
 
 class AbsInterpolator {

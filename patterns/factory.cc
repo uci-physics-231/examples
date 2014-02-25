@@ -1,3 +1,6 @@
+// A sample implementation of the FactoryMethod design pattern in C++
+// Verify that it compiles using g++ -c factory.cc
+
 #include <string>
 #include <stdexcept>
 
