@@ -17,3 +17,6 @@ class SplineInterpolator : public AbsInterpolator {
 	SplineInterpolator(std::vector<double> const &xvec, std::std::vector<double> const &yvec);
 	double interpolate(double x) const;
 };
+
+//AbsInterpolator *interpolator1 = new LinearInterpolator(...);
+//AbsInterpolator *interpolator2 = new SplineInterpolator(...);
