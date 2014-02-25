@@ -27,3 +27,6 @@ def create(name):
 	if name == "proton":
 		return Proton()
 	raise RuntimeError("Unknown particle name: %s",name)
+	# We could have used eval above, but this has security issues
+	#if name in ("Electron","Proton"):
+	#	return eval(name+"()")
